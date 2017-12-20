@@ -1,7 +1,7 @@
 ---
  - name: Host configuration
    hosts: qglobal
-   user: pearson
+   user: ec2-user
    become: yes
    become_method: sudo
    roles:
@@ -10,7 +10,7 @@
 
  - name: Database Server Installation & Database Creation
    hosts: qglobal
-   user: pearson
+   user: ec2-user
    become: yes
    become_method: sudo
    roles:
