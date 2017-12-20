@@ -1,19 +1,19 @@
 ---
-   oracle_sw_source_www: http://oladmin/orasw 
+   oracle_sw_source_www: http://oladmin/orasw
    is_sw_source_local: false
    role_separation: true
    configure_cluster: false
 
    oracle_install_version_gi: 12.1.0.2
-   
+
    configure_host_disks: true
-   host_fs_layout:    
+   host_fs_layout:
        u01:
          {mntp: /u01, device: /dev/sdb, vgname: vgora, pvname: /dev/sdb1, lvname: lvora, fstype: ext4 }
 
    device_persistence: asmlib
    oracle_asm_init_dg: crs
-   asm_diskgroups:        # ASM Diskgroups used for DB-storage. Should map to dict asm_storage_layout. 
+   asm_diskgroups:        # ASM Diskgroups used for DB-storage. Should map to dict asm_storage_layout.
       - crs
       - data
       - fra
@@ -30,12 +30,12 @@
    oracle_reco_dir_asm: "FRA"                                        # If storage_type=ASM this is where the fast recovery area is placed
 
    oracle_sw_image_db:
-       - { filename: linuxamd64_12102_database_1of2.zip, version: 12.1.0.2 }
-       - { filename: linuxamd64_12102_database_2of2.zip, version: 12.1.0.2 }
+#       - { filename: linuxamd64_12102_database_1of2.zip, version: 12.1.0.2 }
+#       - { filename: linuxamd64_12102_database_2of2.zip, version: 12.1.0.2 }
 #       - { filename: linuxamd64_12c_database_1of2.zip, version: 12.1.0.1 }
 #       - { filename: linuxamd64_12c_database_2of2.zip, version: 12.1.0.1 }
-#       - { filename: p13390677_112040_Linux-x86-64_1of7.zip, version: 11.2.0.4 }
-#       - { filename: p13390677_112040_Linux-x86-64_2of7.zip, version: 11.2.0.4 }
+        - { filename: p13390677_112040_Linux-x86-64_1of7.zip, version: 11.2.0.4 }
+        - { filename: p13390677_112040_Linux-x86-64_2of7.zip, version: 11.2.0.4 }
 
    oracle_databases:                                               # Dictionary describing the databases to be installed
         - home: myhomeasm                                                     # 'Last' directory in ORACLE_HOME path (e.g /u01/app/oracle/12.1.0.2/racdb)
@@ -48,7 +48,7 @@
           pdb_prefix: pdb
           num_pdbs: 1
           is_racone: "false"                                   # (true/false) Is the database a RAC ONE NODE Database
-          storage_type: ASM                                     # Database storage to be used. ASM or FS. 
+          storage_type: ASM                                     # Database storage to be used. ASM or FS.
           service_name: asmdb_serv                               # Inital service to be created (not in use yet)
           oracle_init_params: "open_cursors=300,processes=700" # Specific parameters to be set during installation. Comma-separated list
           oracle_db_mem_percent: 30                            # Amount of RAM to be used for SGA
@@ -66,11 +66,10 @@
 #          pdb_prefix: pdb
 #          num_pdbs: 1
 #          is_racone: "false"                                   # (true/false) Is the database a RAC ONE NODE Database
-#          storage_type: ASM                                     # Database storage to be used. ASM or FS.   
+#          storage_type: ASM                                     # Database storage to be used. ASM or FS.
 #          service_name: asmdb_serv                               # Inital service to be created (not in use yet)
 #          oracle_init_params: "open_cursors=300,processes=700" # Specific parameters to be set during installation. Comma-separated list
 #          oracle_db_mem_percent: 30                            # Amount of RAM to be used for SGA
 #          oracle_database_type: MULTIPURPOSE                   # MULTIPURPOSE|DATA_WAREHOUSING|OLTP
 #          redolog_size_in_mb: 100
 #          delete_db: false                                     # Should the database be deleted? (Feeds into role: oradb-delete
-
