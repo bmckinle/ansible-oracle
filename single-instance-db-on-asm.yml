@@ -3,8 +3,9 @@
 
  - name: Host configuration
    hosts: mygroupasm
-   user: ansible
-   sudo: yes
+   user: pearson
+   become: yes
+   become_method: sudo
    roles:
       - common
       - orahost
@@ -12,16 +13,18 @@
 
  - name: Oracle Grid Infrastructure installation & ASM Configuration
    hosts: mygroupasm
-   user: ansible
-   sudo: yes
+   user: pearson
+   become: yes
+   become_method: sudo
    roles:
       - oraswgi-install
       - oraasm-createdg
 
  - name: Database Server Installation & Database Creation
    hosts: mygroupasm
-   user: ansible
-   sudo: yes
+   user: pearson
+   become: yes
+   become_method: sudo
    roles:
       - oraswdb-install
       - oradb-create

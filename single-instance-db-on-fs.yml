@@ -3,16 +3,18 @@
 
  - name: Host configuration
    hosts: orafs
-   user: ansible
-   sudo: yes
+   user: pearson
+   become: yes
+   become_method: sudo
    roles:
       - common
       - orahost
 
  - name: Database Server Installation & Database Creation
    hosts: orafs
-   user: ansible
-   sudo: yes
+   user: pearson
+   become: yes
+   become_method: sudo
    roles:
       - oraswdb-install
       - oradb-create
