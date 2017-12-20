@@ -1,6 +1,4 @@
 ---
-
-
  - name: Host configuration
    hosts: orafs
    user: pearson
