@@ -1,0 +1,28 @@
+---
+ - name: Host configuration
+   hosts: qglobal-asm
+   user: pearson
+   become: yes
+   become_method: sudo
+   roles:
+      - common
+      - orahost
+      - orahost-storage
+
+ - name: Oracle Grid Infrastructure installation & ASM Configuration
+   hosts: qglobal-asm
+   user: pearson
+   become: yes
+   become_method: sudo
+   roles:
+      - oraswgi-install
+      - oraasm-createdg
+
+ - name: Database Server Installation & Database Creation
+   hosts: qglobal-asm
+   user: pearson
+   become: yes
+   become_method: sudo
+   roles:
+      - oraswdb-install
+      - oradb-create
