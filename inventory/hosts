@@ -1,5 +1,5 @@
 [qglobal]
-ansible-oracle
+ansible-oracle-dev
 
 [qglobal-asm]
 ansible-oracle-asm
