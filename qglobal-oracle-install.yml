@@ -5,7 +5,7 @@
    become: yes
    become_method: sudo
    roles:
-      - common
+      - ora-common
       - orahost
 
  - name: Database Server Installation & Database Creation
